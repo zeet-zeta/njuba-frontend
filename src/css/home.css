@@ -1,0 +1,275 @@
+.app {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.sidebar {
+  width: 20%;
+  background-color: #f0f0f0;
+  padding: 20px;
+  height: 100%;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar li {
+  cursor: pointer;
+  padding: 8px;
+  margin-bottom: 5px;
+}
+
+.sidebar li.active {
+  font-weight: bold;
+}
+
+.main-content {
+  width: 70%;
+  margin-left: 5%;
+}
+
+.posts {
+  /* margin: 0 auto;
+  column-count: 2;
+  column-width: 240px;
+  column-gap: 20px; */
+  width: 70%;
+}
+
+.post {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  min-width: 0;
+  margin-bottom: 20px;
+  break-inside: avoid;
+}
+
+.post button {
+  margin-top: 10px;
+}
+
+.new-post {
+  margin-top: 20px;
+  width: 70%;
+}
+
+.new-post input,
+.new-post textarea,
+.new-post button {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.avatar-container {
+  position: relative;
+  display: inline-block;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.menu {
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 60px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.menu-item {
+  padding: 10px 15px;
+  cursor: pointer;
+  width: 70px;
+  height: 20px;
+}
+
+.menu-item:hover {
+  background-color: #f0f0f0;
+}
+
+#newCategory {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  width: 50%;
+  margin-right: 10px;
+}
+
+#newCategory:focus {
+  border-color: #5b9bd5;
+  outline: none;
+}
+
+button {
+  padding: 10px 15px;
+  font-size: 16px;
+  background-color: #5b9bd5;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-right: 10px;
+}
+
+button:hover {
+  background-color: #4a8db1;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  resize: none;
+}
+
+.buttons {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.image-grid2 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  width: 200px;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.image-item2 {
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
+}
+
+.image-item2 img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.image-item2 img:hover{
+  opacity:0.5;
+}
+
+.content-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+}
+
+#newComment {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  width: 60%;
+  margin-right: 10px;
+}
+
+#newComment:focus {
+  border-color: #5b9bd5;
+  outline: none;
+}
+
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  max-width: 600px;
+}
+
+.image-item {
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
+  cursor:pointer;
+}
+
+.image-item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.divider-container {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 60%;
+}
+
+.divider-line {
+  flex-grow: 1;
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 0 10px;
+}
+
+.divider-text {
+  font-weight: bold;
+}
+
+.comment {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.comment-name {
+  font-weight: bold;
+}
+.comment-text {
+  flex: 1;
+  word-break: break-word;
+}
+.comment-container {
+  width: 100%;
+}
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+.lightbox-image {
+  max-width: 90%;
+  max-height: 90%;
+}
