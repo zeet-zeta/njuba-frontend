@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 
-export const UserAvatar = ({ refresh, setRefresh}) => {
+export const UserAvatar = ({ refresh, setRefresh }) => {
     const username = localStorage.getItem('username');
     const [avatarUrl, setAvatarUrl] = useState('');
+    const isFirefox = ! 'showOpenFilePicker' in window;
 
     const toggleMenu = () => {
         const menu = document.getElementById('menu');
@@ -41,6 +42,30 @@ export const UserAvatar = ({ refresh, setRefresh}) => {
         toggleMenu();
     }
 
+
+
+    const fileInputRef = useRef(null);
+
+    const handleButtonClick = () => {
+        fileInputRef.current.click();
+    };
+
+    const firefoxUploadImage = async (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            if (file.type.startsWith('image/')) {
+                const formData = new FormData();
+                formData.append('file', file);
+                await axios.post(`http://localhost:7001/image/avatar/${username}/set`, formData);
+            } else {
+                alert('只能上传图片文件！');
+                event.target.value = null;
+            }
+        }
+        setRefresh(prev => !prev);
+        toggleMenu();
+    }
+
     useEffect(() => {
         const fetchAvatar = async () => {
             try {
@@ -59,9 +84,16 @@ export const UserAvatar = ({ refresh, setRefresh}) => {
                 <img src={avatarUrl} alt="头像" id="avatar" />
             </div>
             <div className="menu" id="menu">
-                <div className="menu-item" onClick={uploadImage}>更换头像</div>
+                <div className="menu-item" onClick={isFirefox ? handleButtonClick : uploadImage}>更换头像</div>
                 <div className="menu-item" onClick={logout}>退出登录</div>
             </div>
+            <input
+                type="file"
+                ref={fileInputRef}
+                style={{ display: 'none' }}
+                accept='image/*'
+                onChange={firefoxUploadImage}
+            />
         </div>
     );
 };
