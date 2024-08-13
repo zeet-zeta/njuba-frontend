@@ -4,7 +4,7 @@ import axios from 'axios';
 export const UserAvatar = ({ refresh, setRefresh }) => {
     const username = localStorage.getItem('username');
     const [avatarUrl, setAvatarUrl] = useState('');
-    const isFirefox = ! 'showOpenFilePicker' in window;
+    const isFirefox = ! ('showOpenFilePicker' in window);
 
     const toggleMenu = () => {
         const menu = document.getElementById('menu');

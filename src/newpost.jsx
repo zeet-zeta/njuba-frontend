@@ -4,7 +4,7 @@ import axios from 'axios';
 export const NewPost = ({ posts, setPosts, setPostsCount }) => {
     const [newPostContent, setNewPostContent] = useState('');
     const [images, setImages] = useState([]);
-    const isFirefox = true;
+    const isFirefox = ! ('showOpenFilePicker' in window);
 
     const handleClick = (index) => {
         setImages(images.filter((_, i) => i !== index));
